@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @contact.user %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @contact.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @contact.email %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @contact.website %>
+</p>
+
+<p>
+  <strong>Twitter handle:</strong>
+  <%= @contact.twitter_handle %>
+</p>
+
+<p>
+  <strong>Contacted:</strong>
+  <%= @contact.contacted %>
+</p>
+
+<p>
+  <strong>Industry influencer:</strong>
+  <%= @contact.industry_influencer %>
+</p>
+
+<p>
+  <strong>Power user:</strong>
+  <%= @contact.power_user %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @contact.comments %>
+</p>
+
+<%= link_to 'Edit', edit_contact_path(@contact) %> |
+<%= link_to 'Back', contacts_path %>
