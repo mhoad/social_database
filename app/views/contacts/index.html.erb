@@ -18,19 +18,14 @@
     <% @contacts.each do |contact| %>
       <tr>
         <td><%= contact.id %></td>
-        <td><%= contact.name %></td>
+        <td><%= link_to contact.name, contact_path(contact) %></td>
         <td><%= contact.email %></td>
         <td><%= link_to contact.website, contact.website %></td>
         <td><%= contact.twitter_handle %></td>
-        <td><%= contact.comments %></td>
+        <td><%= contact.comments.truncate(40) %></td>
         <td>
-          <%= link_to contact_path(contact), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
-            <%= glyph 'info-sign' %>
-            <%= glyph 'pencil' %>
-          <%- end -%>
-          <%= link_to contact_path(contact), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
-            <%= glyph 'remove' %>
-          <%- end -%>
+          <%= link_to "Edit", edit_contact_path(contact) %>
+          <%= link_to "Delete", contact_path(contact), :method => :delete, :data => { :confirm => "Are you sure?"} %>
         </td>
       </tr>
     <% end %>
