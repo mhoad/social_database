@@ -1,6 +1,6 @@
 <%- model_class = Contact -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => Contact %></h1>
+  <h1>List of Social Contacts</h1>
 </div>
 <table class="table table-striped">
   <thead>
@@ -10,11 +10,7 @@
       <th><%= model_class.human_attribute_name(:email) %></th>
       <th><%= model_class.human_attribute_name(:website) %></th>
       <th><%= model_class.human_attribute_name(:twitter_handle) %></th>
-      <th><%= model_class.human_attribute_name(:contacted) %></th>
-      <th><%= model_class.human_attribute_name(:industry_influencer) %></th>
-      <th><%= model_class.human_attribute_name(:power_user) %></th>
       <th><%= model_class.human_attribute_name(:comments) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -24,13 +20,9 @@
         <td><%= contact.id %></td>
         <td><%= contact.name %></td>
         <td><%= contact.email %></td>
-        <td><%= contact.website %></td>
+        <td><%= link_to contact.website, contact.website %></td>
         <td><%= contact.twitter_handle %></td>
-        <td><%= contact.contacted %></td>
-        <td><%= contact.industry_influencer %></td>
-        <td><%= contact.power_user %></td>
         <td><%= contact.comments %></td>
-        <td><%=l contact.created_at, format: :long %></td>
         <td>
           <%= link_to contact_path(contact), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
             <%= glyph 'info-sign' %>

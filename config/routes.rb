@@ -8,7 +8,14 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+  authenticated :user do
+    root to: 'contacts#index', as: :authenticated_root
+  end
+  
   root 'landings#index'
+
+
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -61,6 +68,7 @@ Rails.application.routes.draw do
   
   #->Prelang (user_login:devise/stylized_paths)
   devise_scope :user do
+
     get    "login"   => "users/sessions#new",         as: :new_user_session
     post   "login"   => "users/sessions#create",      as: :user_session
     delete "signout" => "users/sessions#destroy",     as: :destroy_user_session
@@ -70,5 +78,7 @@ Rails.application.routes.draw do
     put    "signup"  => "users/registrations#update", as: :update_user_registration
     get    "account" => "users/registrations#edit",   as: :edit_user_registration
   end
+
+
 
 end
